@@ -1,5 +1,5 @@
 {
-  "name": "mern-infrastructure",
+  "name": "sofie-kreisz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.2",
     "react-scripts": "5.0.1",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "styled-components": "^6.1.12"
   },
   "scripts": {
     "start": "react-scripts start",

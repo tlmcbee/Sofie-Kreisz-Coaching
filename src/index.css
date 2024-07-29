@@ -31,6 +31,17 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+  color: var(--white);
+  transition: 300ms;
+}
+
+a:hover {
+  color: var(--text-dark);
+  text-decoration: wavy;
+}
+
 #root {
   height: 100%;
 }
