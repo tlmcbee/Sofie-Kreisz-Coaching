@@ -3,6 +3,7 @@ import styled from "styled-components"
 import * as userService from "../../utilities/users-services"
 import './NavBar.css'
 import Burger from "./Burger/Burger.jsx"
+import { useState } from "react"
 
 
 const Nav = styled.nav`
@@ -24,14 +25,20 @@ export default function NavBar({ user, setUser }) {
     userService.logOut()
     setUser(null)
   }
+  const [serviceActive, setServiceActive] = useState(false)
+
+  function handleLinkClick () {
+    setServiceActive(false)
+  }
+
   return (
     <Nav>
-      <div className="logo">
-        <Link to="/*">
+      <div className="logo" >
+        <Link to="/*" onClick={handleLinkClick}>
         SofieKreisz
         </Link>
       </div>
-      <Burger />
+      <Burger serviceActive={serviceActive} setServiceActive={setServiceActive} />
     </Nav>
   )
 }

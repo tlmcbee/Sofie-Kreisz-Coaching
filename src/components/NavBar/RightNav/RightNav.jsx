@@ -1,15 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import './RightNav.css'
+import ServiceList from "./ServiceList";
+
 
 const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
+  padding-left: 0;
 
   li {
     padding: 18px 10px;
+  }
+  
+  .service{
+  padding-left: 0;
+  color: black;
   }
 
   @media (max-width: 768px) {
@@ -29,13 +37,23 @@ const Ul = styled.ul`
     }
   }
 `;
+
+
 export default function RightNav({open}) {
+  const [serviceActive, setServiceActive] = useState(false)
+
+  function handleLinkClick () {
+    setServiceActive(false)
+  }
+
   return (
     <Ul open={open}>
-      <li><Link to="/bio">About Me</Link></li> 
-      <li><Link to="/services">Services</Link></li>
-      <li><Link to="/blog">Blog</Link></li>
-      <li><Link to="#">Log Out</Link></li>
+      <li><Link to="/bio" onClick={handleLinkClick}>About Me</Link></li> 
+      <li>
+        <ServiceList  serviceActive={serviceActive} setServiceActive={setServiceActive} onClick={handleLinkClick}/>
+      </li>
+      <li><Link to="/blog" onClick={handleLinkClick}>Blog</Link></li>
+      <li><Link to="#" onClick={handleLinkClick}>Log Out</Link></li>
     </Ul>
   )
 }
